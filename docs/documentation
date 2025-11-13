@@ -1,0 +1,44 @@
+Disaster Recovery Automation Project Documentation
+Project: Walkway Mall – AWS Multi-Region Disaster Recovery (DR) System
+
+1. Introduction
+Today’s digital applications must be operational 24/7, especially businesses like Walkway Mall, where website downtime directly affects customers, bookings, and revenue. To ensure continuous service even during unexpected outages—server failure, region downtime, or application crash—an automated Disaster Recovery (DR) system is essential.
+This project implements a fully automated, event-driven Disaster Recovery solution on Amazon Web Services (AWS). It detects failures in the Primary EC2 server, automatically switches operations to a DR EC2 in another region, updates DNS to redirect users, and restores service without human intervention.
+2. Project Objectives
+• Ensure 24/7 availability of Walkway Mall website
+• Automatically detect EC2 server failure
+• Automatically perform Failover (Primary → DR region)
+• Automatically perform Failback (DR → Primary)
+• Update DNS routing without domain purchase
+• Provide continuous monitoring and real-time alerts
+• Maintain database and website backups
+• Achieve high availability at low operational cost
+3. AWS Services Used
+EC2, S3, RDS, AWS Backup, Route 53 Private Hosted Zone, CloudWatch, SNS, Lambda, EventBridge, IAM.
+4. Real-World Analogy
+Walkway Mall operates like two real mall branches. The primary mall serves customers daily. The DR mall is a backup location, ready to open instantly during emergencies. Services like CloudWatch, SNS, and Lambda serve as security monitoring, alarms, and automated staff respectively.
+5. Detailed Implementation Steps
+• Launch Primary EC2
+• Launch DR EC2
+• Configure Route 53 Private Hosted Zone
+• Create Route 53 Health Check
+• Create CloudWatch Alarm
+• Configure SNS Notifications
+• Create IAM Role for Lambda
+• Create Lambda Automation (Failover & Failback)
+• Set EventBridge DR Test Scheduler
+• Test Failover & Failback
+6. Testing & Validation
+• Stop Primary EC2 → DR triggers
+• Start Primary EC2 → Failback triggers
+• DNS changes confirmed
+• Notifications received
+• Lambda logs verified
+7. Security Considerations
+IAM least-privilege, private DNS, restricted access, encrypted backups, VPC isolation.
+8. Cost Optimization
+DR EC2 remains stopped, Lambda pay-per-use, Route 53 private is free, minimal CloudWatch costs.
+9. Project Outcomes
+The system provides fully automated failover, failback, DNS switching, monitoring, backup protection, and enterprise reliability at minimal cost.
+10. Conclusion
+The Walkway Mall Disaster Recovery Automation ensures application resilience using AWS-native automation. The system is scalable, cost-efficient, and production-ready, guaranteeing business continuity during system or regional outages.
